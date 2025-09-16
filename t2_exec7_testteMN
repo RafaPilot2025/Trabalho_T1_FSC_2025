@@ -1,0 +1,48 @@
+; Diagonal principal: lê M em 0x80, N em 0x82, dados em 0x84 (word, row-major)
+; Escreve min(M,N) elementos da diagonal em 0x100.. (word)
+
+
+
+
+
+
+
+
+main
+    ; --- ler M e N ---
+    ldw v0,zr,0x80        ; v0 = M
+    ldw v1,zr,0x82        ; v1 = N
+
+    ; --- k = min(M,N) ---
+    add v2,zr             ; v2 = 0
+    add v2,v0             ; v2 = M
+    blt v1,v0,set_to_n    ; se N < M, v2 = N
+    beq zr,zr,k_ready
+set_to_n
+    add v2,zr             ; v2 = 0
+    add v2,v1             ; v2 = N
+k_ready
+
+    ; --- stride_bytes = 2*(N+1) = 2N + 2 ---
+    add v3,zr             ; v3 = 0
+    add v3,v1             ; v3 = N
+    add v3,v1             ; v3 = 2N
+    add v3,v3,2           ; v3 = 2N + 2
+
+    ; --- ponteiros ---
+    add a0,zr,0x84        ; a0 = &mat[0][0]
+    add a1,zr,0x100       ; a1 = &dest[0]
+
+; ===== copiar k elementos da diagonal =====
+loop
+    beq v2,zr,end         ; terminou?
+    ldw v4,a0             ; v4 = mat(i,i)
+    stw v4,a1             ; dest[i] = v4
+
+    add a0,v3             ; avança p/ próximo (i+1,i+1)
+    add a1,a1,2           ; destino avança 1 word
+    sub v2,v2,1           ; k--
+    beq zr,zr,loop
+
+end
+    hlt

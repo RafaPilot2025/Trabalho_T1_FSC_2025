@@ -1,0 +1,34 @@
+main
+    
+    add a1, zr, var_1
+    add a2, zr, var_2
+    add a3, zr, var_3
+    stw a1, zr, 0x50
+    stw a2, zr, 0x52
+    stw a3, zr, 0x54  
+    add v0,zr,0x0040         ; começa em 0x40
+    add v1,zr,0x0090     ; destino 0x90
+    add v2,zr,64         ; vai fazer 64 vezes
+
+loop1
+    lbu v3,v0            ; pega valor
+    and v4,v3,1          ; confere se é ímpar
+    bne v4,zr,loopok     ; se já é, pula
+    add v3,v3,1          ; se não, soma 1
+
+loopok
+    stb v3,v1            ; guarda no destino
+    add v0,v0,1          ; próximo da origem
+    add v1,v1,1          ; próximo do destino
+    sub v2,v2,1          ; menos 1 no contador
+    bne v2,zr,loop1       ; repete se não acabou
+
+end
+    hlt                  ; fim
+
+var_1
+	5
+var_2
+	6
+var_3
+	7

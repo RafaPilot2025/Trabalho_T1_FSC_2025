@@ -1,0 +1,22 @@
+main
+	add v0,zr,1  ;v0 é o max
+	add v4,zr,25
+	add v7,zr,78
+	add v2,zr,0x40 ; vetor
+	add v3,zr,0x80
+	stw v4,zr,0x42
+	stw v7,zr,0x70 
+
+loop 
+	ldw v5,v2,0x0 ; carrega v[0] para v5
+	blt v5,v0,continuo
+	add v0,v5,0
+	add v2,v2,2
+	beq v2,v3,endloop
+continuo 
+	add v2,v2,2
+	beq v2,v3,endloop
+	beq zr,zr,loop
+endloop 
+	stw v0,zr,0x90
+	hlt

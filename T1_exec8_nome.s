@@ -53,11 +53,11 @@ text1
 	"Rafael Magalhaes"
 
 text2
-	"Matheus Kretzman"
+	"Matheus Cunha"
 
 text3
-	"Sofia ..."
+	"Matheus Kretzmann"
 
 text4
-	"Nicholas ..."
+	"Nicolas Arcari"
 

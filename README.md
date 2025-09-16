@@ -1,4 +1,9 @@
 # Trabalho_T1_FSC_2025
+
+
+Grupo: Matheus Cunha, Matheus Kretzmann, Nicolas Arcari e Rafael Magalhães
+
+
 Linguagem de montagem e montador do processador TRM
 
 

@@ -37,7 +37,7 @@ Questão 3:
 Questão 4:
 
 
-  A
+  O código vai navegar pela memória do 0X40 até 0X90, em um loop guarda o valor da memória na V3 e confere se é ímpar, se for ímpar ele pula pro próximo loop que guarda o valor a partir da 0X90 sempre checando se é ímpar, caso não seja soma 1 para tornar ímpar, isso se repete até a v2 ser igual a 0, pois é qusndo já navegou os 64 valores da memória.
 
 
 ![img](img/Questao_4.png)
@@ -73,7 +73,7 @@ Questão 7:
 Questão 8:
 
 
-  A
+  Nesse código nós criamos uma variável com o nome de cada membro do grupo e guardamos os nomes na memória. Depois carregamos cada letra e printamos ela usando um loop que printa a letra que está na 0xf006, depois adiciona 1 no registrador que a variável está guardada, o loop termina quando a v0 for igual a 0, então pula para o end,  que pula uma linha no print  e guarda a palavra da v0 na 0xf006. Depois esse processo se repete 4 vezes, uma para cada nome.
 
 
 ![img](img/Questao_8.png)
@@ -82,7 +82,8 @@ Questão 8:
 Questão 9:
 
 
-  A
+  Nesse código colocamos a palavra na a0 e deixamos a a1 igual a a0,para encontrar o fim da String  subimos a a1 na v0 e se encontrar um valor nulo volta uma posição para encontrar a ultima letra. No loop que vê se é palindromo, comparamos a a1, que está invertida, com a a0, que está na ordem normal, e as duas devem ser iguais. Caso sejam é palindromo, caso contrário não são.  E depois usamos outro loop para printar a palavra, que carrega cada byte e manda para a 0xf006, isso continua enquanto a v0 for igual a 0.
+
 
 
 ![img](img/Questao_9.png)
@@ -91,7 +92,7 @@ Questão 9:
 Questão 10:
 
 
-  A
+  Primeiro iniciamos da v1 até a v5 igual a 0, para serem as contadoras. Depois guarda nos registradores o valor em ASCII de cada vogal, para poder comprar mais tarde. No primeiro loop ele vê se ainda tem caracteres para comparar, caso não tenha já guarda as contadoras na memória,  depois guarda o byte, a letra específica,  no r13, e então compara cada variável com o registrador em que as vogais foram guardadas, e caso o r13 seja igual a uma das vogais, vai adicionar 1 a contadoras daquela vogal e pula para o próximo caracter, e isso se repete até encontrar um valor nulo na memória.  E no final ele guarda a contadora de cada vogal no seu lugar de memória.
 
 
 ![img](img/Questao_10.png)

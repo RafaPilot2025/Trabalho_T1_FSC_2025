@@ -64,7 +64,7 @@ Questão 6:
 Questão 7:
 
 
-  A
+  Este código em lê os valores M e N de uma matriz em memória a partir do endereço 0x80, percorre a matriz e copia os elementos da sua diagonal principal para outro lugar da memória começando em 0x100. Ele calcula k = min(M, N) para garantir que só percorra até onde existirem elementos na diagonal, e a cada iteração avança o ponteiro de leitura em 2 bytes pulando para o próximo elemento e grava cada valor lido na posição correspondente.
 
 
 ![img](img/Questao_7.png)
